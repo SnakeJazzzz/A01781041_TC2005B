@@ -1,0 +1,31 @@
+mecanicas:
+    
+    Gereracion de oro:
+        1 cada segundo
+        10 max
+    Vida de las torres:
+        100 puntos
+    Deck de cartas:
+        6 a escoger
+    Mapa:
+        lagos
+        pasto
+
+cartas:
+    short range:
+        Soldado:
+            Costo: 1
+            Vida: 3
+            Atque: 1
+            Movimiento: 1 CxS
+
+        Nights:
+            Costo: 3
+            Vida: 3
+            Atque: 3
+            Movimiento: 3 CxS
+
+        Gigante
+    long range
+    water carrds:
+    abilidad
