@@ -1,291 +1,191 @@
-# **Game Name Here**
+# **Tower Siege**
 
-## _Game Design Document_
-
----
-
-##### **Copyright notice / author information / boring legal stuff nobody likes**
-
-##
-## _Index_
+## _Documento de Diseño de Juego_
 
 ---
 
-1. [Index](#index)
-2. [Game Design](#game-design)
-    1. [Summary](#summary)
-    2. [Gameplay](#gameplay)
-    3. [Mindset](#mindset)
-3. [Technical](#technical)
-    1. [Screens](#screens)
-    2. [Controls](#controls)
-    3. [Mechanics](#mechanics)
-4. [Level Design](#level-design)
-    1. [Themes](#themes)
-        1. Ambience
-        2. Objects
-            1. Ambient
-            2. Interactive
-        3. Challenges
-    2. [Game Flow](#game-flow)
-5. [Development](#development)
-    1. [Abstract Classes](#abstract-classes--components)
-    2. [Derived Classes](#derived-classes--component-compositions)
-6. [Graphics](#graphics)
-    1. [Style Attributes](#style-attributes)
-    2. [Graphics Needed](#graphics-needed)
-7. [Sounds/Music](#soundsmusic)
-    1. [Style Attributes](#style-attributes-1)
-    2. [Sounds Needed](#sounds-needed)
-    3. [Music Needed](#music-needed)
-8. [Schedule](#schedule)
+##### **Aviso de derechos de autor**
 
-## _Game Design_
+Pedro Mauri Mtz - A01029143
+Michael Andrew Devlyn - A01781041
+Tomás Molina Pérez Diez - A01784116
+
+## _Índice_
 
 ---
 
-### **Summary**
+1. [Índice](#índice)
+2. [Diseño de Juego](#diseño-de-juego)
+    1. [Resumen](#resumen)
+    2. [Jugabilidad](#jugabilidad)
+    3. [Mentalidad](#mentalidad)
+3. [Técnico](#técnico)
+    1. [Pantallas](#pantallas)
+    2. [Controles](#controles)
+    3. [Mecánicas](#mecánicas)
+4. [Diseño de Niveles](#diseño-de-niveles)
+    1. [Temas](#temas)
+    2. [Flujo de Juego](#flujo-de-juego)
+5. [Desarrollo](#desarrollo)
+6. [Gráficos](#gráficos)
+7. [Sonidos/Música](#sonidosmúsica)
+8. [Cronograma](#cronograma)
 
-Sum up your game idea in 2 sentences. A kind of elevator pitch. Keep it simple!
-
-### **Gameplay**
-
-What should the gameplay be like? What is the goal of the game, and what kind of obstacles are in the way? What tactics should the player use to overcome them?
-
-### **Mindset**
-
-What kind of mindset do you want to provoke in the player? Do you want them to feel powerful, or weak? Adventurous, or nervous? Hurried, or calm? How do you intend to provoke those emotions?
-
-## _Technical_
-
----
-
-### **Screens**
-
-1. Title Screen
-    1. Options
-2. Level Select
-3. Game
-    1. Inventory
-    2. Assessment / Next Level
-4. End Credits
-
-_(example)_
-
-### **Controls**
-
-How will the player interact with the game? Will they be able to choose the controls? What kind of in-game events are they going to be able to trigger, and how? (e.g. pressing buttons, opening doors, etc.)
-
-### **Mechanics**
-
-Are there any interesting mechanics? If so, how are you going to accomplish them? Physics, algorithms, etc.
-
-## _Level Design_
+## _Diseño de Juego_
 
 ---
 
-_(Note : These sections can safely be skipped if they&#39;re not relevant, or you&#39;d rather go about it another way. For most games, at least one of them should be useful. But I&#39;ll understand if you don&#39;t want to use them. It&#39;ll only hurt my feelings a little bit.)_
+### **Resumen**
 
-### **Themes**
+En "Tower Siege", dos jugadores se enfrentan en una batalla estratégica, seleccionando mazos de cartas que representan varias unidades para atacar las torres del oponente mientras defienden las propias. El dominio del posicionamiento de unidades y la gestión de recursos es clave para la victoria en este competitivo juego 2D.
 
-1. Forest
-    1. Mood
-        1. Dark, calm, foreboding
-    2. Objects
-        1. _Ambient_
-            1. Fireflies
-            2. Beams of moonlight
-            3. Tall grass
-        2. _Interactive_
-            1. Wolves
-            2. Goblins
-            3. Rocks
-2. Castle
-    1. Mood
-        1. Dangerous, tense, active
-    2. Objects
-        1. _Ambient_
-            1. Rodents
-            2. Torches
-            3. Suits of armor
-        2. _Interactive_
-            1. Guards
-            2. Giant rats
-            3. Chests
+### **Jugabilidad**
 
-_(example)_
+El juego empieza al enseñarle a los jugadores en que tablero (mapa) va a ser la partida. Los jugadores después seleccionan cinco cartas de un conjunto de veinte, incluyendo soldados, caballeros, arqueros, catapultas entre otros. El jugador no sabe que baraja escogió su contrincante.
+Al usar una carta en el tablero, esto hará que aparezca el personaje de la carta en el lugar colocado. Cada carta tiene un costo de recursos para desplegar y un cooldown después de que ha sido usada. El juego desafía a los jugadores a gestionar estos recursos, desplegar unidades estratégicamente, y conquistar las torres centrales para obtener una ventaja. 
+Al conquistar las torres centrales, estas amplían el espacio donde un jugador puede colocar sus cartas.
+La victoria se logra destruyendo las torres del oponente o si nadie ha ganado al terminar el tiempo de partida el jugador que ha hecho más daño al oponente gana..
 
-### **Game Flow**
+### **Mentalidad**
 
-1. Player starts in forest
-2. Pond to the left, must move right
-3. To the right is a hill, player jumps to traverse it (&quot;jump&quot; taught)
-4. Player encounters castle - door&#39;s shut and locked
-5. There&#39;s a window within jump height, and a rock on the ground
-6. Player picks up rock and throws at glass (&quot;throw&quot; taught)
-7. … etc.
+El juego busca invocar una mentalidad de planificación estratégica y adaptabilidad. Los jugadores deberían sentir la tensión de la gestión de recursos, la emoción de romper las defensas exitosamente, y la necesidad de adaptarse constantemente al campo de batalla en evolución.
 
-_(example)_
-
-## _Development_
+## _Técnico_
 
 ---
 
-### **Abstract Classes / Components**
+### **Pantallas**
 
-1. BasePhysics
-    1. BasePlayer
-    2. BaseEnemy
-    3. BaseObject
-2. BaseObstacle
-3. BaseInteractable
+1. Pantalla de Título
+    - Iniciar Juego
+    - Opciones
+    - Salir
+2. Selección de Mazo
+3. Pantalla de Batalla
+    - Menú de Pausa
+4. Pantalla de Victoria/Derrota
+5. Créditos
 
-_(example)_
+### **Controles**
 
-### **Derived Classes / Component Compositions**
+- **Ratón**: Navegar por los menús, seleccionar cartas, colocar unidades.
+- **Teclado**: Atajos para la selección de cartas, manejo de tropas.
 
-1. BasePlayer
-    1. PlayerMain
-    2. PlayerUnlockable
-2. BaseEnemy
-    1. EnemyWolf
-    2. EnemyGoblin
-    3. EnemyGuard (may drop key)
-    4. EnemyGiantRat
-    5. EnemyPrisoner
-3. BaseObject
-    1. ObjectRock (pick-up-able, throwable)
-    2. ObjectChest (pick-up-able, throwable, spits gold coins with key)
-    3. ObjectGoldCoin (cha-ching!)
-    4. ObjectKey (pick-up-able, throwable)
-4. BaseObstacle
-    1. ObstacleWindow (destroyed with rock)
-    2. ObstacleWall
-    3. ObstacleGate (watches to see if certain buttons are pressed)
-5. BaseInteractable
-    1. InteractableButton
+### **Mecánicas**
 
-_(example)_
-
-## _Graphics_
+- **Generación de Recursos**: Los jugadores reciben recursos con el tiempo, utilizados para jugar cartas.
+- **Despliegue de Unidades**: Interfaz de arrastrar y soltar para colocar unidades en el campo de batalla.
+- **Interacción con el Terreno**: Las unidades interactúan con el terreno, afectando el movimiento y la estrategia.
+-**Manejo de unidades desplegadas**: Las unidades toman la dirección que los jugadores 
+indiquen. 
+## _Diseño de Niveles_
 
 ---
 
-### **Style Attributes**
+### **Temas**
 
-What kinds of colors will you be using? Do you have a limited palette to work with? A post-processed HSV map/image? Consistency is key for immersion.
+#### **Campo de Batalla**
+- **Ambiente**: Competitivo, intenso
+- **Objetos**
+    - _Interactivos_: Árboles (cobertura), lagos(obstáculo)
 
-What kind of graphic style are you going for? Cartoony? Pixel-y? Cute? How, specifically? Solid, thick outlines with flat hues? Non-black outlines with limited tints/shades? Emphasize smooth curvatures over sharp angles? Describe a set of general rules depicting your style here.
+### **Flujo de Juego**
 
-Well-designed feedback, both good (e.g. leveling up) and bad (e.g. being hit), are great for teaching the player how to play through trial and error, instead of scripting a lengthy tutorial. What kind of visual feedback are you going to use to let the player know they&#39;re interacting with something? That they \*can\* interact with something?
+1. Cada jugador selecciona su mazo.
+2. Comienza la batalla, los jugadores generan recursos.
+3. Los jugadores despliegan unidades, con el objetivo de destruir las torres del oponente.
+4. La victoria se logra cuando todas las torres de un jugador son destruidas.
 
-### **Graphics Needed**
-
-1. Characters
-    1. Human-like
-        1. Goblin (idle, walking, throwing)
-        2. Guard (idle, walking, stabbing)
-        3. Prisoner (walking, running)
-    2. Other
-        1. Wolf (idle, walking, running)
-        2. Giant Rat (idle, scurrying)
-2. Blocks
-    1. Dirt
-    2. Dirt/Grass
-    3. Stone Block
-    4. Stone Bricks
-    5. Tiled Floor
-    6. Weathered Stone Block
-    7. Weathered Stone Bricks
-3. Ambient
-    1. Tall Grass
-    2. Rodent (idle, scurrying)
-    3. Torch
-    4. Armored Suit
-    5. Chains (matching Weathered Stone Bricks)
-    6. Blood stains (matching Weathered Stone Bricks)
-4. Other
-    1. Chest
-    2. Door (matching Stone Bricks)
-    3. Gate
-    4. Button (matching Weathered Stone Bricks)
-
-_(example)_
-
-
-## _Sounds/Music_
+## _Desarrollo_
 
 ---
 
-### **Style Attributes**
+### **Clases Abstractas / Componentes**
 
-Again, consistency is key. Define that consistency here. What kind of instruments do you want to use in your music? Any particular tempo, key? Influences, genre? Mood?
+1. **Carta**
+    - Atributos: Costo, Tipo (Ataque/Defensa), Alcance
+2. **Unidad**
+    - Derivado de Carta: Soldado, Caballero, Arquero
+3. **Torre**
+    - Salud, Valor de Defensa
 
-Stylistically, what kind of sound effects are you looking for? Do you want to exaggerate actions with lengthy, cartoony sounds (e.g. mario&#39;s jump), or use just enough to let the player know something happened (e.g. mega man&#39;s landing)? Going for realism? You can use the music style as a bit of a reference too.
+### **Clases Derivadas / Composiciones de Componentes**
 
- Remember, auditory feedback should stand out from the music and other sound effects so the player hears it well. Volume, panning, and frequency/pitch are all important aspects to consider in both music _and_ sounds - so plan accordingly!
+- **Unidades**
+    - **Soldado**: Bajo costo, unidad básica
+    - **Caballero**: Alta salud, rapido
+    - **Arquero**: Largo alcance, baja salud
+- **Obstáculos**
+    - **Árbol**: Proporciona cobertura a ciertas tropas.
+    - **lago**No cruzable por la mayoría, potencia ciertas las unidades.
 
-### **Sounds Needed**
-
-1. Effects
-    1. Soft Footsteps (dirt floor)
-    2. Sharper Footsteps (stone floor)
-    3. Soft Landing (low vertical velocity)
-    4. Hard Landing (high vertical velocity)
-    5. Glass Breaking
-    6. Chest Opening
-    7. Door Opening
-2. Feedback
-    1. Relieved &quot;Ahhhh!&quot; (health)
-    2. Shocked &quot;Ooomph!&quot; (attacked)
-    3. Happy chime (extra life)
-    4. Sad chime (died)
-
-_(example)_
-
-### **Music Needed**
-
-1. Slow-paced, nerve-racking &quot;forest&quot; track
-2. Exciting &quot;castle&quot; track
-3. Creepy, slow &quot;dungeon&quot; track
-4. Happy ending credits track
-5. Rick Astley&#39;s hit #1 single &quot;Never Gonna Give You Up&quot;
-
-_(example)_
-
-
-## _Schedule_
+## _Gráficos_
 
 ---
 
-_(define the main activities and the expected dates when they should be finished. This is only a reference, and can change as the project is developed)_
+### **Atributos de Estilo**
 
-1. develop base classes
-    1. base entity
-        1. base player
-        2. base enemy
-        3. base block
-  2. base app state
-        1. game world
-        2. menu world
-2. develop player and basic block classes
-    1. physics / collisions
-3. find some smooth controls/physics
-4. develop other derived classes
-    1. blocks
-        1. moving
-        2. falling
-        3. breaking
-        4. cloud
-    2. enemies
-        1. soldier
-        2. rat
-        3. etc.
-5. design levels
-    1. introduce motion/jumping
-    2. introduce throwing
-    3. mind the pacing, let the player play between lessons
-6. design sounds
-7. design music
+- **Colores**: Vibrantes, colores de equipo distintos para claridad
+- **Estilo**: Semi-realista con elementos estilizados, asegurando que las unidades y el terreno sean fácilmente distinguibles.
+- **Retroalimentación**: Explosiones para unidades destruidas, contornos brillantes para unidades seleccionables.
 
-_(example)_
+### **Gráficos Necesarios**
+
+1. **Unidades**: Sprites animados para cada tipo de unidad.
+2. **Terreno**: Texturas variadas para diferentes terrenos (césped, agua, arbol).
+3. **Efectos**: Efectos visuales para ataques, recolección de recursos.
+
+## _Sonidos/Música_
+
+---
+
+### **Atributos de Estilo**
+
+- **Instrumentos**: Partituras orquestales con un ritmo dinámico que refleja la intensidad del juego.
+- **Efectos de Sonido**: Choque de espadas, pasos de marcha y ruidos de construcción para una jugabilidad inmersiva.
+
+### **Sonidos Necesarios**
+
+1. **Movimientos de Unidades**: Cada tipo de unidad tiene sonidos de pasos distintos.
+2. **Combate**: Diferentes sonidos para ataques cuerpo a cuerpo, a distancia y de asedio.
+3. **Ambientales**: Ambiente de fondo que refleja el terreno actual.
+
+### **Música Necesaria**
+
+1. **Tema Principal**: Una pieza orquestal heroica que establece el tono épico del juego.
+2. **Música de Batalla**: Música rápida e intensa que se reproduce durante el combate, con variaciones dependiendo de la etapa de la batalla.
+3. **Temas de Victoria/Derrota**: Temas distintos que se reproducen al ganar o perder una partida, capturando el ambiente de triunfo o pérdida.
+4. **Música de Menú**: Música de fondo sutil y atmosférica para los menús del juego y la pantalla de selección de mazo.
+
+## _Cronograma_
+
+---
+
+1. **Fase de Concepto y Diseño** (sem 1-2)
+    - Finalizar concepto de juego, mecánicas y documento de diseño.
+    - Comenzar arte preliminar y bocetos conceptuales.
+
+2. **Fase de Desarrollo** (sem  3-5)
+    - Desarrollar mecánicas de juego principales e implementar jugabilidad básica.
+    - Crear niveles iniciales y probar equilibrio.
+    - Implementar elementos básicos de UI y controles.
+
+3. **Producción de Arte y Sonido** (sem 6-8)
+    - Finalizar todos los activos gráficos incluyendo personajes, entornos y UI.
+    - Grabar e integrar efectos de sonido y pistas musicales.
+
+4. **Pruebas y Refinamiento** (sem 9-10)
+    - Realizar sesiones de prueba para recopilar comentarios.
+    - Refinar jugabilidad, equilibrar unidades y pulir gráficos/sonido.
+
+5. **Preparación para el Lanzamiento** (sem 11)
+    - Lanzar el juego.
+
+6. **Soporte Post-Lanzamiento** (Continuo)
+    - Monitorear comentarios de los jugadores y abordar cualquier problema con actualizaciones.
+    - Lanzar contenido adicional (p.ej., nuevas unidades, mapas) basado en la demanda de los jugadores.
+
+---
+
+
+
