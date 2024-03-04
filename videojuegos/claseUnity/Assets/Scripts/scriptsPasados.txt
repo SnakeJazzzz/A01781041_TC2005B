@@ -1,0 +1,48 @@
+//Game controler for a pong game 
+//keep track off scores and ball status
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class GameController : MonoBehaviour
+{
+    public GameObject dotPrefab;
+    public GameObject dot;
+    public float force;
+    public int pointsLeft=0;
+    public int pointsRight=0;
+    public TMP_Text scoreLeft;
+    public TMP_Text scoreRight;
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartGame();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void StartGame(){
+        //make the ball move and respect the direction of bounce after hitting paddles or walls
+        dot = Instantiate(dotPrefab);
+        dot.GetComponent<Rigidbody2D>().velocity = Random.onUnitSphere * force;
+  
+    }
+    public void AddPoint(string wall){
+        if(wall == "left"){
+            pointsRight++;
+            scoreRight.text = pointsRight.ToString();
+        }
+        if(wall == "right"){
+            pointsLeft++;
+            scoreLeft.text = pointsLeft.ToString();
+        }
+        Destroy(dot);
+        StartGame();
+    }
+}

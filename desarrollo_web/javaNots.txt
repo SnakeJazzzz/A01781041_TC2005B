@@ -1,0 +1,38 @@
+michaelthemac@Michaels-MacBook-Pro clase % npm -v
+10.2.4
+michaelthemac@Michaels-MacBook-Pro clase % npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (clase) 
+version: (1.0.0) 
+description: simmple web applicatin 2
+entry point: (idont.js) app.js
+test command: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /Users/michaelthemac/Desktop/Tec/Desarrollo De Soft/Github/A01781041_TC2005B/desarrollo_web/clase/package.json:
+
+{
+  "name": "clase",
+  "version": "1.0.0",
+  "description": "simmple web applicatin 2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) 
