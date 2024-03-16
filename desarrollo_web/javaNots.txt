@@ -1,38 +1,42 @@
-michaelthemac@Michaels-MacBook-Pro clase % npm -v
-10.2.4
-michaelthemac@Michaels-MacBook-Pro clase % npm init
-This utility will walk you through creating a package.json file.
-It only covers the most common items, and tries to guess sensible defaults.
-
-See `npm help init` for definitive documentation on these fields
-and exactly what they do.
-
-Use `npm install <pkg>` afterwards to install a package and
-save it as a dependency in the package.json file.
-
-Press ^C at any time to quit.
-package name: (clase) 
-version: (1.0.0) 
-description: simmple web applicatin 2
-entry point: (idont.js) app.js
-test command: 
-git repository: 
-keywords: 
-author: 
-license: (ISC) 
-About to write to /Users/michaelthemac/Desktop/Tec/Desarrollo De Soft/Github/A01781041_TC2005B/desarrollo_web/clase/package.json:
-
-{
-  "name": "clase",
-  "version": "1.0.0",
-  "description": "simmple web applicatin 2",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
 
 
-Is this OK? (yes) 
+Pasos para inicializar entorno:
+Anters quer nada debes de estar en la caroeta del proyecto
+1. Inicializar un nuevo proyecto de Node.js:  
+    npm init -y
+
+    Este comando crea un archivo package.json en tu directorio, el cual gestiona las dependencias y scripts de tu proyecto.
+2. Instalar express:
+    npm install express
+
+    instala express como una dependencia en el proyecto, lo que permite ultilizarlo para construir el servidor
+
+4. Modificar package.json para soportar ES6:
+    "type": "module"
+
+    agregar esto permite el uso de la sintaxis  import/export de ES6.
+
+5.Ejecuta el servidor:
+    node app.js (nombre de tu archivo)
+
+Comandos curl para interactuar con el servidor de cartas
+
+1. Obtener todas las cartas:
+    curl http://localhost:3000/cartas
+
+2. Obtener una carta por ID:
+    curl http://localhost:3000/cartas/id  (id solo es el numnero del id)
+
+3. Agregar cartas:
+    curl -X POST http://localhost:3000/cartas -H "Content-Type: application/json" -d '{"id": "  {id}", "nombre": "{nombre}", "atributo": "{atributo}"}'
+
+4. Borrar una carta por ID:
+    curl -X DELETE http://localhost:3000/cartas/{id}
+
+5. Actualizar una carta por ID:
+    curl -X PUT http://localhost:3000/cartas/{id} -H "Content-Type: application/json" -d '  {"nombre": "{nuevoNombre}", "atributo": "{nuevoAtributo}"}'
+
+
+
+
+
