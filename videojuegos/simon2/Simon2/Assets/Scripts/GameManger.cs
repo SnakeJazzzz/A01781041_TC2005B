@@ -130,22 +130,16 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    // Call this method when the sequence starts
     public void PlaySequenceTrack()
     {
-        // Ensure the player track is stopped before playing the sequence track
         playerAudioSource.Stop();
         sequenceAudioSource.Play();
     }
 
-    // Call this method when it's the player's turn
     public void PlayPlayerTrack()
     {
-        // Stop the sequence track before playing the player track
         sequenceAudioSource.Stop();
         playerAudioSource.Play();
     }
